@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+     <meta charset="utf-8">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js"></script>
+    
+ <style>
+      body{
+            text-align:center;
+            background-color:#339999;
+        }
+      .container{
+             margin: 300px auto;
+             border:1px white solid;
+             display:inline-block;
+             padding:3px;
+             border-radius:2px;
+         }
+ </style>
+        
+  </head>
+  <body>
+    <div class="container">
+        <form id="formToGoogle" autocomplete="on" method="post" onsubmit="sendInfo(event)">
+        <input type="text"  id="uname" name='uname' placeholder="Enter name" style="font-size:16pt;"  autocomplete="off"/><br><br>
+        <!--<input type="email"  id="umail" name='mail' placeholder="Enter mail" style="font-size:16pt;"  autocomplete="off" /><br><br>-->
+        <!--<input type="tel"  id="fno" name='no' placeholder="Phone No"  style="font-size:16pt;" autocomplete="off"/><br><br>-->
+        <input type="submit" id="but" value="submit" style="font-size:16pt;"/>  
+        </form>
+    </div>
+   
+    <script>
+
+    var  url = 'https://script.google.com/macros/s/AKfycbz7IXE6dYmPEh5frA1LcyrdDurZAxYkco5Ys3WybpBboJmqqM4M/exec';
+
+function sendInfo(e){
+    e.preventDefault();
+    const POST_URL = 'https://script.google.com/macros/s/AKfycbz7IXE6dYmPEh5frA1LcyrdDurZAxYkco5Ys3WybpBboJmqqM4M/exec';
+    
+     const postRequest = {
+    uname: e.target['uname'].value
+  };
+  
+   if(POST_URL) {
+    $.post(POST_URL, JSON.stringify(postRequest))
+      .then(res => {
+     console.log('saved')
+    } 
+    else {
+    alert('You must set the POST_URL variable with your script ID');
+  }
+   }
+  
+}
+
+
+
+    
+    </script>
+   
+
+  </body>
+</html>
+
+
