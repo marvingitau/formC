@@ -7,6 +7,29 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js"></script>
     
+    
+    <script>
+       <script>
+function sendInfo(e){
+    e.preventDefault();
+    const POST_URL = 'https://script.google.com/macros/s/AKfycbz7IXE6dYmPEh5frA1LcyrdDurZAxYkco5Ys3WybpBboJmqqM4M/exec';
+    
+   const postRequest = {
+    uname: e.target['uname'].value
+  };
+  
+   if(POST_URL) {
+    $.post(POST_URL, JSON.stringify(postRequest))
+      .then(res => {
+     console.log('saved')
+    } 
+    else {
+    alert('You must set the POST_URL variable with your script ID');
+  }
+   }
+  
+}
+    </script>
 <!--  <style>
       body{
             text-align:center;
